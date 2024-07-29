@@ -1,16 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Grêmio Estudantil - Agenda de Eventos 2024</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        header {
+            width: 100%;
+            background-color: #333;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        .table thead th {
+            background-color: #333;
+            color: white;
+        }
+        footer {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+        }
+    </style>
 </head>
 <body>
     <header>
-       <h1><a style="color: white; text-decoration:none;" href="index.html">Grêmio Estudantil</a></h1>
-    </header>
+        <h1><a style="color: white; text-decoration:none;" href="index.html">Grêmio Estudantil</a></h1>
     </header>
     
     <nav>
@@ -22,9 +69,58 @@
         </ul>
     </nav>
 
+    <div class="container">
+        <h1 class="text-center">Agenda de Eventos Escolares 2024</h1>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Dia da Semana</th>
+                    <th>Evento</th>
+                </tr>
+            </thead>
+            <tbody id="eventTableBody">
+                <!-- Eventos serão adicionados aqui via JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
     <footer>
         <p>&copy; 2024 Grêmio Estudantil. Todos os direitos reservados.</p>
     </footer>
-    
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const eventos = [
+                { data: '01/01/2024', dia: 'Segunda-feira', evento: 'Ano Novo' },
+                { data: '25/01/2024', dia: 'Quinta-feira', evento: 'Volta às Aulas' },
+                { data: '10/02/2024', dia: 'Sábado', evento: 'Festa de Boas Vindas' },
+                { data: '19/02/2024', dia: 'Segunda-feira', evento: 'Carnaval' },
+                { data: '30/03/2024', dia: 'Sábado', evento: 'Páscoa' },
+                { data: '01/05/2024', dia: 'Quarta-feira', evento: 'Dia do Trabalho' },
+                { data: '12/06/2024', dia: 'Quarta-feira', evento: 'Dia dos Namorados' },
+                { data: '07/09/2024', dia: 'Sábado', evento: 'Independência do Brasil' },
+                { data: '12/10/2024', dia: 'Sábado', evento: 'Dia das Crianças' },
+                { data: '15/11/2024', dia: 'Sexta-feira', evento: 'Proclamação da República' },
+                { data: '25/12/2024', dia: 'Quarta-feira', evento: 'Natal' },
+                { data: '21/04/2024', dia: 'Domingo', evento: 'Tiradentes' },
+                { data: '16/07/2024', dia: 'Terça-feira', evento: 'Férias de Julho' },
+                { data: '07/08/2024', dia: 'Quarta-feira', evento: 'Semana de Ciências' },
+                { data: '05/10/2024', dia: 'Sábado', evento: 'Festa da Primavera' }
+            ];
+
+            function loadEvents() {
+                const eventTableBody = document.getElementById('eventTableBody');
+
+                eventos.forEach(evento => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = <td>${evento.data}</td><td>${evento.dia}</td><td>${evento.evento}</td>;
+                    eventTableBody.appendChild(tr);
+                });
+            }
+
+            loadEvents();
+        });
+    </script>
 </body>
 </html>
