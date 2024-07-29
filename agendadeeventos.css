@@ -44,4 +44,33 @@
             position: fixed;
             bottom: 0;
         }
-  
+   document.addEventListener("DOMContentLoaded", function() {
+            const eventos = [
+                { data: '01/01/2024', dia: 'Segunda-feira', evento: 'Ano Novo' },
+                { data: '25/01/2024', dia: 'Quinta-feira', evento: 'Volta às Aulas' },
+                { data: '10/02/2024', dia: 'Sábado', evento: 'Festa de Boas Vindas' },
+                { data: '19/02/2024', dia: 'Segunda-feira', evento: 'Carnaval' },
+                { data: '30/03/2024', dia: 'Sábado', evento: 'Páscoa' },
+                { data: '01/05/2024', dia: 'Quarta-feira', evento: 'Dia do Trabalho' },
+                { data: '12/06/2024', dia: 'Quarta-feira', evento: 'Dia dos Namorados' },
+                { data: '07/09/2024', dia: 'Sábado', evento: 'Independência do Brasil' },
+                { data: '12/10/2024', dia: 'Sábado', evento: 'Dia das Crianças' },
+                { data: '15/11/2024', dia: 'Sexta-feira', evento: 'Proclamação da República' },
+                { data: '25/12/2024', dia: 'Quarta-feira', evento: 'Natal' },
+                { data: '21/04/2024', dia: 'Domingo', evento: 'Tiradentes' },
+                { data: '16/07/2024', dia: 'Terça-feira', evento: 'Férias de Julho' },
+                { data: '07/08/2024', dia: 'Quarta-feira', evento: 'Semana de Ciências' },
+                { data: '05/10/2024', dia: 'Sábado', evento: 'Festa da Primavera' }
+            ];
+
+            function loadEvents() {
+                const eventTableBody = document.getElementById('eventTableBody');
+
+                eventos.forEach(evento => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = <td>${evento.data}</td><td>${evento.dia}</td><td>${evento.evento}</td>;
+                    eventTableBody.appendChild(tr);
+                });
+            }
+
+            loadEvents();
