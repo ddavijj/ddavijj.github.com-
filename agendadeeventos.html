@@ -109,18 +109,7 @@
                 { data: '05/10/2024', dia: 'Sábado', evento: 'Festa da Primavera' }
             ];
 
-            function loadEvents() {
-                const eventTableBody = document.getElementById('eventTableBody');
-
-                eventos.forEach(evento => {
-                    const tr = document.createElement('tr');
-                    tr.innerHTML = <td>${evento.data}</td><td>${evento.dia}</td><td>${evento.evento}</td>;
-                    eventTableBody.appendChild(tr);
-                });
-            }
-
-            loadEvents();
-        });
+            
     </script>
 </body>
 </html>
